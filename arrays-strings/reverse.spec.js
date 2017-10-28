@@ -22,7 +22,7 @@ describe('function reverse()', () => {
     sliceSpy.reset();
     reverse('abc');
     expect(splitSpy.notCalled).to.be.true;
-    // expect(sliceSpy.called).to.be.false;
+    expect(sliceSpy.notCalled).to.be.true;
   })
 
 
