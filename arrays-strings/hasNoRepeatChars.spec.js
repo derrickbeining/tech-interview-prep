@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {
   hasNoRepeatChars,
-} from './arrays-strings.solution';
+} from './arrays-strings';
 
 describe('function hasNoRepeatChars()', () => {
 
@@ -40,7 +40,6 @@ describe('function hasNoRepeatChars()', () => {
     const blockOpenIdx = stringifiedFunc.indexOf('{');
     const blockCloseIdx = stringifiedFunc.lastIndexOf('}')
     const codeBlock = stringifiedFunc.slice(blockOpenIdx, blockCloseIdx);
-    console.log(codeBlock);
     for (let i = 0; i < dsCharacters.length; i++) {
        expect(codeBlock.includes(dsCharacters[i])).to.be.false;
     }
