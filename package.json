@@ -1,0 +1,22 @@
+{
+  "name": "technical-interview-practice-javascript-es2015",
+  "version": "0.0.1",
+  "description": "practice problems and tests for technical interview prep",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV='test' mocha ./**/*.spec.js -w --require babel-register"
+  },
+  "keywords": [
+    "technical-interviews",
+    "javascript"
+  ],
+  "author": "Derrick Beining",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
