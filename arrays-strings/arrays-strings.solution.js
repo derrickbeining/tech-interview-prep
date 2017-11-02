@@ -38,3 +38,43 @@ export const reverse = str => {
   }
   return reversed.join('');
 }
+
+export const urlEncodeSpaces = str => {
+  const stringBuffer = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ' ') stringBuffer.push('%20');
+    else stringBuffer.push(str[i]);
+  }
+  return stringBuffer.join('');
+}
+
+const interleave = (arr1, arr2) => {
+  const merged = [];
+  const longer = arr1.length > arr2.length ? arr1 : arr2;
+  for (let i = 0; i < longer.length; i++) {
+    if (arr1[i]) merged.push(arr1[i]);
+    if (arr2[i]) merged.push(arr2[i]);
+  }
+  return merged;
+}
+
+export const compress = str => {
+  const charsFound = [];
+  const charCounts = [];
+  let currIdx = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (!charsFound[currIdx]) {
+      charsFound[currIdx] = str[i];
+      charCounts[currIdx] = 1;
+    } else if (charsFound[currIdx] === str[i]) {
+      charCounts[currIdx]++;
+    } else {
+      currIdx++;
+      charsFound[currIdx] = str[i];
+      charCounts[currIdx] = 1;
+    }
+  }
+  const compressed = interleave(charsFound, charCounts).join('');
+  if (compressed.length < str.length) return compressed;
+  else return str;
+}

@@ -1,7 +1,5 @@
 import {expect} from 'chai';
-import {
-  hasNoRepeatChars,
-} from './arrays-strings';
+import {hasNoRepeatChars} from './arrays-strings';
 
 describe('function hasNoRepeatChars()', () => {
 
