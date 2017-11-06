@@ -75,7 +75,6 @@ export const reverse = str => {
 }
 
 export const rotateMatrix90 = matrix => {
-  console.log(matrix);
   // last idx for any row/col:
   const ultima = matrix.length - 1;
   // num concentric squares to rotate:
@@ -103,7 +102,6 @@ export const rotateMatrix90 = matrix => {
       }
       numSquaresRotated++;
     }
-  console.log(matrix);
   return matrix;
 }
 
