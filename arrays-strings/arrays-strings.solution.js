@@ -1,3 +1,5 @@
+// REMEMBER TO EXPORT YOUR FUNCTIONS
+
 const interleave = (arr1, arr2) => {
   const merged = [];
   const longer = arr1.length > arr2.length
@@ -32,7 +34,7 @@ export const compress = str => {
   }
 
 export const hasNoRepeatChars = str => {
-  if (typeof str !== 'string') throw new TypeError('strings only please');
+  if (typeof str !== 'string') throw new TypeError();
   if (!str.length) return true;
   for (let i = 0; i < str.length - 1; i++) {
     const currChar = str[i].toLowerCase();
@@ -47,14 +49,12 @@ export const hasNoRepeatChars = str => {
 export const isPermutation = (str1, str2) => {
   // if strings have diff lengths, they can't be permutations
   if (str1.length !== str2.length) return false;
-
   // loop through first string
-  for (let i = 0; i < str1.length; i++) {
+  for (let i = 0; str1[i] !== undefined; i++) {
     // for each letter in first string, loop through second string
-    for (let j = 0; j < str2.length; j++) {
+    for (let j = 0; j < str2[j] !== undefined; j++) {
       // stop inner loop and increment outer loop whenever a match is found
       if (str1[i] === str2[j]) break;
-
       // if you reach the last letter of inner loop without a match, it's not a
       // permutation
       if ((j === str2.length - 1) && str1[i] !== str2[j]) {
@@ -90,7 +90,7 @@ export const rotateMatrix90 = matrix => {
         // idx to traverse right or bottom side:
         const ultimaOffset = ultima - firstOffset;
         // store top:
-        let temp = matrix[first][firstOffset];
+        let oldTop = matrix[first][firstOffset];
         // top <-- left
         matrix[first][firstOffset] = matrix[ultimaOffset][first];
         // left <-- bottom
@@ -98,7 +98,7 @@ export const rotateMatrix90 = matrix => {
         // bottom <-- right
         matrix[last][ultimaOffset] = matrix[firstOffset][last];
         // right <-- top
-        matrix[firstOffset][last] = temp;
+        matrix[firstOffset][last] = oldTop;
       }
       numSquaresRotated++;
     }
