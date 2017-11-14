@@ -1,5 +1,5 @@
-import {expect} from 'chai';
-import {urlEncodeSpaces} from './arrays-strings';
+const {expect} = require('chai');
+const {urlEncodeSpaces} = require('./arrays-strings');
 
 describe('function urlEncodeSpaces()', () => {
 

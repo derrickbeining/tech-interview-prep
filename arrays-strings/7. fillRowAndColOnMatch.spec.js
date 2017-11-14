@@ -1,5 +1,5 @@
-import {expect} from 'chai';
-import {fillMatrixRowsAndColsOnMatch} from './arrays-strings';
+const {expect} = require('chai');
+const {fillRowAndColOnMatch} = require('./arrays-strings');
 
 describe('function fillRowAndColOnMatch()', () => {
   const Matrix = (numRows, numCols) => {
@@ -14,22 +14,30 @@ describe('function fillRowAndColOnMatch()', () => {
   }
 
   let matrix;
+  const rows = 5;
+  const cols = 4;
   beforeEach('create new matrix', () => {
-    matrix = new Matrix(5, 4);
+    matrix = Matrix(rows, cols);
   })
 
-  it('takes a matrix of any dimensions and a match value of any type and returns the same matrix', () => {
-    expect(fillMatrixRowsAndColsOnMatch(matrix, 1)).to.equal(matrix);
+  it('takes a MxN matrix and a match value of any type and returns the same matrix', () => {
+    expect(fillRowAndColOnMatch(matrix, 1)).to.equal(matrix);
   });
 
   it('traverses the matrix until it finds the match; if found, it sets the entire row and column of that element to the matched value', () => {
-    const matchVal = 2;
-    fillMatrixRowsAndColsOnMatch(matrix, matchVal)
-    for (let i = 0; i < matrix.length; i++) {
-      expect(matrix[i][matchVal]).to.equal(matchVal);
-
-      for (let j = 0; j < matrix[i].length; j++) {
-        matrix[i][j]
+    for (let matchVal = 0; matchVal < (rows * cols); matchVal++) {
+      matrix = Matrix(rows, cols);
+      const rowToCheck = Math.floor(matchVal / cols);
+      const colToCheck = matchVal % cols;
+      fillRowAndColOnMatch(matrix, matchVal)
+      for (let row = 0; row < matrix.length; row++) {
+        if (row === rowToCheck) {
+          for (let col = 0; col < matrix[row].length; col++) {
+            expect(matrix[row][col]).to.equal(matchVal);
+          }
+        } else {
+          expect(matrix[row][colToCheck]).to.equal(matchVal);
+        }
       }
     }
   })

@@ -1,6 +1,6 @@
 /* eslint-disable new-cap  */
-import {expect} from 'chai';
-import {rotateMatrix90} from './arrays-strings';
+const {expect} = require('chai');
+const {rotateMatrix90} = require('./arrays-strings');
 
 describe('function rotateMatrix()', () => {
 

@@ -1,5 +1,5 @@
-import {expect} from 'chai';
-import {hasNoRepeatChars} from './arrays-strings';
+const {expect} = require('chai');
+const {hasNoRepeatChars} = require('./arrays-strings');
 
 describe('function hasNoRepeatChars()', () => {
 

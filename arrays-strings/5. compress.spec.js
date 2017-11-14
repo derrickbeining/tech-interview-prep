@@ -1,5 +1,5 @@
-import {expect, assert} from 'chai';
-import {compress} from './arrays-strings';
+const {expect, assert} = require('chai');
+const {compress} = require('./arrays-strings');
 
 describe('function compress()', () => {
   it('takes a string and returns a string', () => {

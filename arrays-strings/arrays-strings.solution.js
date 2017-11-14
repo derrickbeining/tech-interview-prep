@@ -1,39 +1,7 @@
 // REMEMBER TO EXPORT YOUR FUNCTIONS
 
-const interleave = (arr1, arr2) => {
-  const merged = [];
-  const longer = arr1.length > arr2.length
-    ? arr1
-    : arr2;
-  for (let i = 0; i < longer.length; i++) {
-    if (arr1[i]) merged.push(arr1[i]);
-    if (arr2[i]) merged.push(arr2[i]);
-    }
-  return merged;
-}
 
-export const compress = str => {
-  const charsFound = [];
-  const charCounts = [];
-  let currIdx = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (!charsFound[currIdx]) {
-      charsFound[currIdx] = str[i];
-      charCounts[currIdx] = 1;
-    } else if (charsFound[currIdx] === str[i]) {
-      charCounts[currIdx]++;
-    } else {
-      currIdx++;
-      charsFound[currIdx] = str[i];
-      charCounts[currIdx] = 1;
-    }
-  }
-  const compressed = interleave(charsFound, charCounts).join('');
-  if (compressed.length < str.length) return compressed;
-  else return str;
-  }
-
-export const hasNoRepeatChars = str => {
+const hasNoRepeatChars = str => {
   if (typeof str !== 'string') throw new TypeError();
   if (!str.length) return true;
   for (let i = 0; i < str.length - 1; i++) {
@@ -46,7 +14,16 @@ export const hasNoRepeatChars = str => {
   return true;
 }
 
-export const isPermutation = (str1, str2) => {
+
+const reverse = str => {
+  const reversed = [];
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed.push(str[i]);
+  }
+  return reversed.join('');
+}
+
+const isPermutation = (str1, str2) => {
   // if strings have diff lengths, they can't be permutations
   if (str1.length !== str2.length) return false;
   // loop through first string
@@ -66,15 +43,50 @@ export const isPermutation = (str1, str2) => {
   return true;
 }
 
-export const reverse = str => {
-  const reversed = [];
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversed.push(str[i]);
-  }
-  return reversed.join('');
+
+const urlEncodeSpaces = str => {
+  const stringBuffer = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ' ') stringBuffer.push('%20');
+    else stringBuffer.push(str[i]);
+    }
+  return stringBuffer.join('');
 }
 
-export const rotateMatrix90 = matrix => {
+const interleave = (arr1, arr2) => {
+  const merged = [];
+  const longer = arr1.length > arr2.length
+    ? arr1
+    : arr2;
+  for (let i = 0; i < longer.length; i++) {
+    if (arr1[i]) merged.push(arr1[i]);
+    if (arr2[i]) merged.push(arr2[i]);
+  }
+  return merged;
+}
+
+const compress = str => {
+  const charsFound = [];
+  const charCounts = [];
+  let currIdx = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (!charsFound[currIdx]) {
+      charsFound[currIdx] = str[i];
+      charCounts[currIdx] = 1;
+    } else if (charsFound[currIdx] === str[i]) {
+      charCounts[currIdx]++;
+    } else {
+      currIdx++;
+      charsFound[currIdx] = str[i];
+      charCounts[currIdx] = 1;
+    }
+  }
+  const compressed = interleave(charsFound, charCounts).join('');
+  if (compressed.length < str.length) return compressed;
+  else return str;
+}
+
+const rotateMatrix90 = matrix => {
   // last idx for any row/col:
   const ultima = matrix.length - 1;
   // num concentric squares to rotate:
@@ -105,11 +117,26 @@ export const rotateMatrix90 = matrix => {
   return matrix;
 }
 
-export const urlEncodeSpaces = str => {
-  const stringBuffer = [];
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === ' ') stringBuffer.push('%20');
-    else stringBuffer.push(str[i]);
+const fillRowAndColOnMatch = (matrix, match) => {
+  for (let row = 0; row < matrix.length; row++) {
+    for (let col = 0; col < matrix[row].length; col++) {
+      if (matrix[row][col] === match) {
+        matrix[row].fill(match);
+        matrix.forEach(rowInMatrix => { rowInMatrix[col] = match })
+        console.log(matrix);
+        return matrix;
+      }
     }
-  return stringBuffer.join('');
+  }
+  return matrix;
+}
+
+module.exports = {
+  hasNoRepeatChars,
+  reverse,
+  isPermutation,
+  urlEncodeSpaces,
+  compress,
+  rotateMatrix90,
+  fillRowAndColOnMatch,
 }

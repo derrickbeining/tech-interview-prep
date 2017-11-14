@@ -1,6 +1,5 @@
-import {expect, assert} from 'chai';
-import sinon from 'sinon';
-import {isPermutation} from './arrays-strings';
+const {expect, assert} = require('chai');
+const {isPermutation} = require('./arrays-strings');
 
 describe('function isPermutation()', () => {
 

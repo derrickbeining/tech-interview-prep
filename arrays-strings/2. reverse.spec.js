@@ -1,6 +1,6 @@
-import {expect} from 'chai';
-import sinon from 'sinon';
-import {reverse} from './arrays-strings';
+const {expect} = require('chai');
+const sinon = require('sinon');
+const {reverse} = require('./arrays-strings');
 
 describe('function reverse()', () => {
   let splitSpy, sliceSpy;
