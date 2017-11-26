@@ -1,6 +1,3 @@
-// REMEMBER TO EXPORT YOUR FUNCTIONS
-
-
 const hasNoRepeatChars = str => {
   if (typeof str !== 'string') throw new TypeError();
   if (!str.length) return true;
@@ -123,7 +120,6 @@ const fillRowAndColOnMatch = (matrix, match) => {
       if (matrix[row][col] === match) {
         matrix[row].fill(match);
         matrix.forEach(rowInMatrix => { rowInMatrix[col] = match })
-        console.log(matrix);
         return matrix;
       }
     }
