@@ -1,3 +1,6 @@
+// REMEMBER TO EXPORT YOUR FUNCTIONS AS NAMED IN THE TEST SPECS
+// YOUR CODE HERE:
+
 const hasNoRepeatChars = str => {
   if (typeof str !== 'string') throw new TypeError();
   if (!str.length) return true;
@@ -127,6 +130,8 @@ const fillRowAndColOnMatch = (matrix, match) => {
   return matrix;
 }
 
+
+// -------------------------------
 module.exports = {
   hasNoRepeatChars,
   reverse,
