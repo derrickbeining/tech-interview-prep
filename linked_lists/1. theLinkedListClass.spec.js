@@ -1,17 +1,17 @@
 import {expect} from 'chai';
-import {LinkedList} from './linked-list.solution';
+import {LinkedList} from './linked-list.solution.js';
 
 describe('The Singly-Linked List', () => {
   let emptyLL;
   let nullLLNode;
   let nodeWithVal;
   let llWithVal;
+
   beforeEach('make new LL', () => {
     emptyLL = new LinkedList();
     nullLLNode = new LinkedList.Node();
     nodeWithVal = new LinkedList.Node('derp');
     llWithVal = new LinkedList('wat!')
-
   })
 
   describe('constructor function', () => {
@@ -72,12 +72,12 @@ describe('The Singly-Linked List', () => {
   describe('Linked List instance methods', () => {
 
 
-    it('has an `.append` instance method', () => {
+    it('includes an `.append` instance method', () => {
       expect(LinkedList.prototype).to.haveOwnProperty('append');
       expect(emptyLL.append).to.equal(LinkedList.prototype.append);
     })
 
-    it('has a `.remove` instance method', () => {
+    it('includes a `.remove` instance method', () => {
       expect(LinkedList.prototype).to.haveOwnProperty('remove');
       expect(emptyLL.remove).to.equal(LinkedList.prototype.remove);
     })

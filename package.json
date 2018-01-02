@@ -19,5 +19,8 @@
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
     "sinon": "^4.0.2"
+  },
+  "dependencies": {
+    "eslint": "^4.14.0"
   }
 }

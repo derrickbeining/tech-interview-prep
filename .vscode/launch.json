@@ -18,12 +18,6 @@
         "${workspaceFolder}/**/*.spec.js"
       ],
       "internalConsoleOptions": "openOnSessionStart"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/arrays-strings/arrays-strings.js"
     }
   ]
 }

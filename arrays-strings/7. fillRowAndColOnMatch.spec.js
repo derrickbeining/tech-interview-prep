@@ -20,11 +20,11 @@ describe('function fillRowAndColOnMatch()', () => {
     matrix = Matrix(rows, cols);
   })
 
-  it('takes a MxN matrix and a match value of any type and returns the same matrix', () => {
+  xit('takes a MxN matrix and a match value of any type and returns the same matrix', () => {
     expect(fillRowAndColOnMatch(matrix, 1)).to.equal(matrix);
   });
 
-  it('traverses the matrix until it finds the match; if found, it sets the entire row and column of that element to the matched value', () => {
+  xit('traverses the matrix until it finds the match; if found, it sets the entire row and column of that element to the matched value', () => {
     for (let matchVal = 0; matchVal < (rows * cols); matchVal++) {
       matrix = Matrix(rows, cols);
       const rowToCheck = Math.floor(matchVal / cols);

@@ -8,16 +8,16 @@ describe('function reverse()', () => {
     splitSpy = sinon.spy(String.prototype, 'split');
     sliceSpy = sinon.spy(String.prototype, 'slice');
   })
-  afterEach('tear replace spies with original method', () => {
+  afterEach('replace spies with original method', () => {
     splitSpy.restore();
     sliceSpy.restore();
   })
 
-  it('takes a string and returns the reverse', () => {
+  xit('takes a string and returns the reverse', () => {
     expect(reverse('abcdefg')).to.equal('gfedcba');
   })
 
-  it('does not use .slice or .split string methods', () => {
+  xit('does not use .slice or .split string methods', () => {
     splitSpy.reset();
     sliceSpy.reset();
     reverse('abc');

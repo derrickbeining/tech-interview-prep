@@ -20,13 +20,13 @@ describe('function rotateMatrix()', () => {
     matrix3x3 = NxNMatrix(3);
   });
 
-  it('takes an NxN two-dimensional array and returns a reference to the same array', () => {
+  xit('takes an NxN two-dimensional array and returns a reference to the same array', () => {
     let result = rotateMatrix90(matrix3x3);
     expect(result).to.be.an.instanceOf(Array);
     expect(matrix3x3 === result).to.be.true;
   })
 
-  it('rotates the elements of the passed-in matrix clock-wise 90 degrees IN PLACE (i.e. without creating a new array)', () => {
+  xit('rotates the elements of the passed-in matrix clock-wise 90 degrees IN PLACE (i.e. without creating a new array)', () => {
     /* Example:
             this  ------ becomes ---->  this
       [1,  2,  3,  4],              [13,  9, 5, 1],
@@ -44,7 +44,7 @@ describe('function rotateMatrix()', () => {
     }
   })
 
-  it('can rotate an NxN matrix of any size', () => {
+  xit('can rotate an NxN matrix of any size', () => {
     for (let num = 4; num < 10; num++) {
       const currMatrix = NxNMatrix(num);
       const unrotated = currMatrix.map(row => [...row]);
