@@ -1,3 +1,5 @@
+// REMEMBER TO EXPORT YOUR FUNCTIONS AS NAMED IN THE TEST SPECS
+// YOUR CODE HERE:
 'use strict'
 
 // ES5 Implementation
@@ -29,31 +31,45 @@ LinkedList.prototype = {
     return this; // allow for chaining
   },
 
-  // May include these convenience methods, not sure yet:
 
-  // filter: function filter(fn) {
-  //   const LL = new LinkedList;
-  //   this.forEach(node => {
-  //     if (fn(node)) LL.append(node);
-  //   });
-  //   return LL;
-  // },
+  filter: function filter(fn) {
+    const LL = new LinkedList;
+    this.forEach(node => {
+      if (fn(node)) LL.append(node);
+    });
+    return LL;
+  },
 
-  // forEach: function forEach(fn) {
-  //   let curr = this.head;
-  //   while (curr !== null) {
-  //     fn(curr);
-  //     curr = curr.next;
-  //   }
-  // },
+  forEach: function forEach(fn) {
+    let curr = this.head;
+    while (curr !== null) {
+      fn(curr);
+      curr = curr.next;
+    }
+  },
 
-  // map: function map(fn) {
-  //   const LL = new LinkedList;
-  //   this.forEach(node => {
-  //     LL.append(fn(node));
-  //   })
-  //   return LL;
-  // },
+  getNthFromLast: function getNthFromLast(num = 0) {
+    let length = 0;
+    let position;
+    let currentNode = this.head;
+    this.forEach(() => length++);
+    position = length - num - 1; // watch those off-by-one errors
+
+    if (position < 0) return undefined;
+
+    for (let count = 0; count < position; count++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode.val;
+  },
+
+  map: function map(fn) {
+    const LL = new LinkedList;
+    this.forEach(node => {
+      LL.append(fn(node));
+    })
+    return LL;
+  },
 
   remove: function remove(val) {
     if (this.head.val === val) {
@@ -95,33 +111,31 @@ LinkedList.prototype = {
 
 function removeDuplicates(list) {
   const LLMinusDuplicates = new LinkedList;
-  const uniqueVals = {};
-  const buffer = [];
+  const uniquesBuffer = {};
   let currentNode = list.head;
   while (currentNode !== null) {
     // if our list nodes are to be able to hold complex data types like {} and [],
     // we can serialize those values to be used as a hash to detect duplicates
     const val = JSON.stringify(currentNode.val);
-    if (uniqueVals[ val ] === undefined) {
+    if (uniquesBuffer[ val ] === undefined) {
       // hash the value
-      uniqueVals[ val ] = currentNode.val;
+      uniquesBuffer[ val ] = currentNode.val;
       // store the unique val
-      buffer.push(currentNode.val);
+      LLMinusDuplicates.append(currentNode.val);
     }
 
     currentNode = currentNode.next;
   }
 
-  for (let val of buffer) {
-    LLMinusDuplicates.append(val);
-  }
-
   return LLMinusDuplicates;
-
 }
+
+
+
 
 
 module.exports = {
   LinkedList,
-  removeDuplicates,
+  removeDuplicates
 }
+

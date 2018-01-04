@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {LinkedList, removeDuplicates} from './linked-list';
+import {LinkedList, removeDuplicates} from './LinkedList';
 
 describe('removeDuplicates()', () => {
 
@@ -9,7 +9,7 @@ describe('removeDuplicates()', () => {
       .append(5).append(5).append(1).append(3).append(4).append(5).append(1);
   })
 
-  it('returns a new LinkedList', () => {
+  xit('returns a new LinkedList', () => {
     const output = removeDuplicates(LLWithDuplicates);
     const isLLInstance = output instanceof LinkedList;
     const areSameList = LLWithDuplicates === output;
@@ -17,8 +17,8 @@ describe('removeDuplicates()', () => {
     expect(areSameList).to.be.false;
   })
 
-  it(`takes an instance of a linked list and returns a copy of it without
-      the nodes holding duplicate values`, () => {
+  xit(`takes an instance of a linked list and returns a copy of it without
+      the nodes that held duplicate values`, () => {
     const LLMinusDuplicates = removeDuplicates(LLWithDuplicates);
     const head = LLMinusDuplicates.head;
     expect(head.val).to.equal(5)

@@ -4,7 +4,7 @@
   "description": "practice problems and tests for technical interview prep",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV='test' mocha -w ./**/*.spec.js --require babel-register"
+    "test": "NODE_ENV='test' mocha -w ./**/*.spec.js --spec --require babel-register"
   },
   "keywords": [
     "technical-interviews",
