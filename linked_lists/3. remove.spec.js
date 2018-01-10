@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {LinkedList} from './LinkedList';
 
-describe('.remove() instance method', () => {
+describe('LinkedList.remove() instance method', () => {
   let emptyLL;
   let llWithVal;
 

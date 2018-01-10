@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {LinkedList} from './LinkedList';
 
-describe('`.append` instance method', () => {
+describe('`LinkedList.append` instance method', () => {
   let emptyLL;
   let llWithVal;
 
